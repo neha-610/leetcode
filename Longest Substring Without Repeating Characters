@@ -1,0 +1,22 @@
+3. Longest Substring Without Repeating Characters
+
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+
+        l = 0
+        longest = 0
+        n = len(s)
+        sett = set()
+
+        for i in range(n):   #O(N)
+            while s[i] in sett:
+                sett.remove(s[l])
+                l +=1
+            w = (i-l) + 1
+            longest = max(w,longest)
+            sett.add(s[i])
+        return longest
+
+
+        
